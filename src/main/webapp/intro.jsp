@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+    pageEncoding="ISO-8859-1" import="control.HashIntegrityGenerator"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,8 +9,7 @@
 	<title>Geek Factory Project</title>
 	<link rel="stylesheet" href="./css/intro-style.css">
 	<link rel="icon" href="./img/icon.png">
-	
-	<script src="https://code.jquery.com/jquery-3.2.1.js"></script>
+	<%= new HashIntegrityGenerator("https://code.jquery.com/jquery-3.2.1.js").getSecure() %>
 </head>
 <body>
 

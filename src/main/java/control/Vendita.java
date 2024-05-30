@@ -56,26 +56,26 @@ public class Vendita extends HttpServlet {
 		                if(!item.isFormField()){
 		                    String name = new File(item.getName()).getName();
 		                    item.write( new File(UPLOAD_DIRECTORY + File.separator + name));
-		                    product.setImmagine(name);
+		                    product.setImmagine(sanitizer.sanitize(name));
 		                }
 		                else {
 		                	if (item.getFieldName().compareTo("nome") == 0) {
-		                		product.setNome(item.getString());
+		                		product.setNome(sanitizer.sanitize(item.getString()));
 		                	}
 		                	else if (item.getFieldName().compareTo("prezzo") == 0) {
-		                		product.setPrezzo(Double.parseDouble(item.getString()));
+		                		product.setPrezzo(Double.parseDouble(sanitizer.sanitize(item.getString())));
 		                	}
 		                	else if (item.getFieldName().compareTo("spedizione") == 0) {
-		                		product.setSpedizione(Double.parseDouble(item.getString()));
+		                		product.setSpedizione(Double.parseDouble(sanitizer.sanitize(item.getString())));
 		                	}
 		                	else if (item.getFieldName().compareTo("tipologia") == 0) {
-		                		product.setTipologia(item.getString());
+		                		product.setTipologia(sanitizer.sanitize(item.getString()));
 		                	}
 							else if (item.getFieldName().compareTo("tag") == 0) {
-								product.setTag(item.getString());
+								product.setTag(sanitizer.sanitize(item.getString()));
 							}
 							else if (item.getFieldName().compareTo("descrizione") == 0) {
-		                		product.setDescrizione(item.getString());
+		                		product.setDescrizione(sanitizer.sanitize(item.getString()));
 		                	}
 		                }
 		            }

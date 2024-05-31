@@ -7,6 +7,8 @@
  	<title>Geek Factory - Registrazione</title>
     <link rel="stylesheet" href="./css/register.css">
     <link rel="icon" href="./img/icon.png">
+    <script src="script/crypt.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.0.0/crypto-js.min.js"></script>
 </head>
 
 <body>
@@ -14,7 +16,7 @@
 	<div class="container">
 		<div class="title">Registrazione</div>
 		<div class="content">
-		<form action="Register" METHOD="POST" name="invio">
+		<form action="Register" METHOD="POST" name="invio" onsubmit="crypt(event)">
 			<div class="user-details">
 				<div class="input-box">
 					<span class="details">E-mail</span>
@@ -22,7 +24,7 @@
 				</div>
 				<div class="input-box">
 					<span class="details">Password</span>
-					<input type="password" name="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,50}" title="La password deve contenere almeno una lettera maiuscola, una minuscola e un numero, e deve essere almeno di 8 caratteri" placeholder="Inserisci la tua password" required>
+					<input type="password" id="password" name="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,50}" title="La password deve contenere almeno una lettera maiuscola, una minuscola e un numero, e deve essere almeno di 8 caratteri" placeholder="Inserisci la tua password" required>
 				</div>
 				<div class="input-box">
 					<span class="details">Nome</span>

@@ -42,6 +42,7 @@ public class Register extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String email = request.getParameter("email");
 		String password = request.getParameter("password");
+		System.out.println(password);
 		String nome = request.getParameter("nome");
 		String cognome = request.getParameter("cognome");
 		String indirizzo = request.getParameter("indirizzo");
@@ -52,7 +53,7 @@ public class Register extends HttpServlet {
 		String redirectedPage = "/loginPage.jsp";
 		try {
 			Connection con = DriverManagerConnectionPool.getConnection();
-			String sql = "INSERT INTO UserAccount(email, passwordUser, nome, cognome, indirizzo, telefono, numero, intestatario, CVV) VALUES (?, MD5(?), ?, ?, ?, ?, ?, ?, ?)";
+			String sql = "INSERT INTO UserAccount(email, passwordUser, nome, cognome, indirizzo, telefono, numero, intestatario, CVV) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
 			String sql2 = "INSERT INTO Cliente(email) VALUES (?)";
 			String sql3 = "INSERT INTO Venditore(email) VALUES (?)";
 			

@@ -99,18 +99,14 @@ public class Login extends HttpServlet {
 	}
 		
 	private String checkPsw(String psw) {
-		MessageDigest md = null;
-		try {
-			md = MessageDigest.getInstance("MD5");
-		}
-		catch (Exception e) {
-			e.printStackTrace();
-		}
-		byte[] messageDigest = md.digest(psw.getBytes());
-		BigInteger number = new BigInteger(1, messageDigest);
-		String hashtext = number.toString(16);
+		String password = psw;
+
+        // Hash the password using SHA-256
+        String hashedPassword = Crypting.hashPassword(password);
+        
+        System.out.println(hashedPassword);
 		
-		return hashtext;
+		return hashedPassword;
 	}
 
 }
